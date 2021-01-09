@@ -1,9 +1,9 @@
 // Retrieve confidential information from .env file
-const result = require('dotenv').config();
+// const result = require('dotenv').config();
 
-if (result.error) {
-  throw result.error;
-}
+// if (result.error) {
+//   throw result.error;
+// }
 
 // import statements
 const express = require('express');
@@ -60,7 +60,7 @@ app.use(
 );
 
 // Gets the URI of the MongoDB database used by app
-const db = require('./config/keys').mongoURI; // Can change to mongoAtlasURI to connect to cloud database
+const db = require('./config/keys').mongoAtlasURI; // Can change to mongoAtlasURI to connect to cloud database
 
 // mongoDB settings
 const options = {
@@ -127,7 +127,7 @@ io.on('connection', (socket) => {
         .then((user) => {
           if (user) {
             const newMessage = new Message({
-              _id: Math.floor(Date.now() / 1000) + "-" + socket.id,
+              _id: Math.floor(Date.now() / 1000) + '-' + socket.id,
               username: user.username,
               userId: socket.id,
               text: data.text,

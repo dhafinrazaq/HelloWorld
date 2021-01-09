@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node server.js",
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\""
@@ -51,5 +51,9 @@
     "mongoose": "^5.11.7",
     "ramda": "^0.27.1",
     "socket.io": "^3.0.5"
+  },
+  "engines": {
+    "node": "10.x"
   }
+
 }
