@@ -3,8 +3,8 @@ import GoogleMapReact from 'google-map-react';
 import supercluster from 'points-cluster';
 
 import './GoogleMap.css';
-import UserPin from './MapObject/UserPin';
-import Cluster from './MapObject/Cluster';
+import UserPin from './mapobject/UserPin';
+import Cluster from './mapobject/Cluster';
 import { StateContext } from '../App';
 
 function createMapOptions(maps) {
@@ -22,14 +22,14 @@ function GoogleMap({ users }) {
 
   useEffect(() => {
     if (mapOptions && mapOptions.bounds) {
-      const clusters = supercluster(users, {
+      const newClusters = supercluster(users, {
         minZoom: 0,
         maxZoom: 16,
         radius: 60,
       });
 
       setClusters(
-        clusters(mapOptions).map(({ wx, wy, numPoints, points }) => ({
+        newClusters(mapOptions).map(({ wx, wy, numPoints, points }) => ({
           lat: wy,
           lng: wx,
           numPoints: numPoints,
