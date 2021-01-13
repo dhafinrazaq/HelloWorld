@@ -24,6 +24,7 @@ const io = require('socket.io')(server, {
     origin: ['http://localhost:3000', 'http://localhost:64226'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['my-custom-header'],
+    transports: ['websocket'],
     credentials: true,
   },
 });
